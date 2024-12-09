@@ -9,18 +9,33 @@ import { getLocalStorage, setLocalStorage } from './utils/localStorage'
 
 const App = () => {
 
-
   const [user, setUser] = useState(null)
+  //getting the authorization data from authprovider
+  //contains both the employees and admin data
+  const authData = useContext(AuthContext)
+  
+  useEffect(() => {
+    if(authData) {
+      const loggedInUser = localStorage.getItem('loggedInUser')
+    }
+  
+  }, [authData]);
+  
+
+
+ 
       // here email and password are not defined yet but if we will pass the email and password
       // where we are calling handleLogin which is the onsubmit of the login form , we can call it from there
     const handleLogin = (email,password) => {
           if(email == "admin@example.com" && password=="123"){
             console.log("this is admin")
             setUser("admin")
-          }
-          else if(email == "employee1@example.com" && password=="123") {
+            localStorage.setItem('loggedInUser', JSON.stringify({role: 'admin'}))
+          }//for employee data, checking if data is present and then finding email and password
+          else if(authData && authData.employees.find((e)=> e.email == email && e.password == password)) {
             console.log("this is employee")
             setUser("employee")
+            localStorage.setItem('loggedInUser', JSON.stringify({role: 'employee'}))
           }
           else{
             alert("Invalid credentials")
@@ -45,8 +60,7 @@ const App = () => {
   //   // console.log()
   // })
 
-  const data = useContext(AuthContext)
-  console.log(data)
+ 
   
 
   return (
