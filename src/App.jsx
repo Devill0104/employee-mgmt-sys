@@ -9,34 +9,50 @@ import { getLocalStorage, setLocalStorage } from './utils/localStorage'
 
 const App = () => {
 
+  
   const [user, setUser] = useState(null)
+  const [loggedInUserData, setLoggedInUserData] = useState(null)
+
   //getting the authorization data from authprovider
   //contains both the employees and admin data
   const authData = useContext(AuthContext)
   
-  useEffect(() => {
-    if(authData) {
-      const loggedInUser = localStorage.getItem('loggedInUser')
-    }
+  // useEffect(() => {
+  //   if(authData) {
+  //     const loggedInUser = localStorage.getItem('loggedInUser')
+  //     if(loggedInUser) {
+  //       setUser(loggedInUser.role)
+  //     }
+  //   }
   
-  }, [authData]);
+  // }, [authData]);
   
 
-
- 
       // here email and password are not defined yet but if we will pass the email and password
       // where we are calling handleLogin which is the onsubmit of the login form , we can call it from there
     const handleLogin = (email,password) => {
+
           if(email == "admin@example.com" && password=="123"){
             console.log("this is admin")
-            setUser("admin")
+            setUser('admin')
             localStorage.setItem('loggedInUser', JSON.stringify({role: 'admin'}))
           }//for employee data, checking if data is present and then finding email and password
-          else if(authData && authData.employees.find((e)=> e.email == email && e.password == password)) {
-            console.log("this is employee")
-            setUser("employee")
-            localStorage.setItem('loggedInUser', JSON.stringify({role: 'employee'}))
+
+          else if(authData ) {
+
+            //if authdata found, and so emp was found then match the emp email and password
+            const employee =  authData.employees.find((e)=> e.email == email && e.password == password)
+
+            if(employee) {
+              console.log("this is employee")
+              setUser('employee')
+
+              //since empoyee contains data of particular emp so it can be found in the loggedinuser 
+              setLoggedInUserData(employee)
+              localStorage.setItem('loggedInUser', JSON.stringify({role: 'employee'}))
+            }
           }
+          
           else{
             alert("Invalid credentials")
           }
@@ -69,7 +85,7 @@ const App = () => {
       {!user ? <Login handleLogin = {handleLogin}/>: ''}
 
       {/* //different Dashboard will appear as per the user type */}
-      {user == 'admin' ?   <AdminDashboard/> : <EmployeeDashboard/> }
+      {user == 'admin' ? <AdminDashboard/> : (user == 'employee' ?  <EmployeeDashboard data={loggedInUserData} />: null) }
         
       {/* <AuthContext></AuthContext> */}
 
