@@ -9,7 +9,7 @@ const employees = [
     "tasks": [
       {
         "active": true,
-        "new task": true,
+        "newtask": true,
         "completed": false,
         "failed": false,
         "task description": "Complete monthly report",
@@ -17,7 +17,7 @@ const employees = [
       },
       {
         "active": false,
-        "new task": false,
+        "newtask": false,
         "completed": true,
         "failed": false,
         "task description": "Update software",
@@ -25,14 +25,14 @@ const employees = [
       },
       {
         "active": true,
-        "new task": true,
+        "newtask": true,
         "completed": false,
         "failed": false,
         "task description": "Attend team meeting",
         "category": "Meeting"
       }
     ],
-    "taskCounts": { "active": 2, "new task": 2, "completed": 1, "failed": 0 }
+    "taskCounts": { "active": 2, "newtask": 2, "completed": 1, "failed": 0 }
   },
   {
     "id": 2,
@@ -42,7 +42,7 @@ const employees = [
     "tasks": [
       {
         "active": true,
-        "new task": true,
+        "newtask": true,
         "completed": false,
         "failed": false,
         "task description": "Fix bug in system",
@@ -50,14 +50,14 @@ const employees = [
       },
       {
         "active": true,
-        "new task": true,
+        "newtask": true,
         "completed": false,
         "failed": false,
         "task description": "Write unit tests for new feature",
         "category": "Testing"
       }
     ],
-    "taskCounts": { "active": 2, "new task": 2, "completed": 0, "failed": 0 }
+    "taskCounts": { "active": 2, "newtask": 2, "completed": 0, "failed": 0 }
   },
   {
     "id": 3,
@@ -67,7 +67,7 @@ const employees = [
     "tasks": [
       {
         "active": true,
-        "new task": true,
+        "newtask": true,
         "completed": false,
         "failed": false,
         "task description": "Research market trends",
@@ -75,7 +75,7 @@ const employees = [
       },
       {
         "active": false,
-        "new task": false,
+        "newtask": false,
         "completed": true,
         "failed": false,
         "task description": "Prepare presentation slides",
@@ -83,14 +83,14 @@ const employees = [
       },
       {
         "active": true,
-        "new task": true,
+        "newtask": true,
         "completed": false,
         "failed": false,
         "task description": "Analyze customer feedback",
         "category": "Customer Relations"
       }
     ],
-    "taskCounts": { "active": 2, "new task": 2, "completed": 1, "failed": 0 }
+    "taskCounts": { "active": 2, "newtask": 2, "completed": 1, "failed": 0 }
   },
   {
     "id": 4,
@@ -100,7 +100,7 @@ const employees = [
     "tasks": [
       {
         "active": true,
-        "new task": true,
+        "newtask": true,
         "completed": false,
         "failed": false,
         "task description": "Create project timeline",
@@ -108,14 +108,14 @@ const employees = [
       },
       {
         "active": false,
-        "new task": false,
+        "newtask": false,
         "completed": true,
         "failed": false,
         "task description": "Finalize budget report",
         "category": "Finance"
       }
     ],
-    "taskCounts": { "active": 1, "new task": 1, "completed": 1, "failed": 0 }
+    "taskCounts": { "active": 1, "newtask": 1, "completed": 1, "failed": 0 }
   },
   {
     "id": 5,
@@ -125,7 +125,7 @@ const employees = [
     "tasks": [
       {
         "active": true,
-        "new task": true,
+        "newtask": true,
         "completed": false,
         "failed": false,
         "task description": "Organize company event",
@@ -133,7 +133,7 @@ const employees = [
       },
       {
         "active": false,
-        "new task": false,
+        "newtask": false,
         "completed": true,
         "failed": false,
         "task description": "Create social media strategy",
@@ -141,14 +141,14 @@ const employees = [
       },
       {
         "active": true,
-        "new task": true,
+        "newtask": true,
         "completed": false,
         "failed": false,
         "task description": "Design email marketing campaign",
         "category": "Marketing"
       }
     ],
-    "taskCounts": { "active": 2, "new task": 2, "completed": 1, "failed": 0 }
+    "taskCounts": { "active": 2, "newtask": 2, "completed": 1, "failed": 0 }
   }
 ];
 
