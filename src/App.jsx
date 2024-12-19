@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { Children, useContext, useEffect, useState } from 'react'
 import Login from './components/Auth/Login'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
@@ -17,15 +17,17 @@ const App = () => {
   //contains both the employees and admin data
   const authData = useContext(AuthContext)
   
-  // useEffect(() => {
-  //   if(authData) {
-  //     const loggedInUser = localStorage.getItem('loggedInUser')
-  //     if(loggedInUser) {
-  //       setUser(loggedInUser.role)
-  //     }
-  //   }
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('loggedInUser')
+    if(loggedInUser) {
+      // console.log("user logged in hai")
+      const userData = JSON.parse(loggedInUser)
+      
+      setUser(userData.role)
+      setLoggedInUserData(userData.data)
+    }
   
-  // }, [authData]);
+  }, [])
   
 
       // here email and password are not defined yet but if we will pass the email and password
@@ -49,7 +51,8 @@ const App = () => {
 
               //since empoyee contains data of particular emp so it can be found in the loggedinuser 
               setLoggedInUserData(employee)
-              localStorage.setItem('loggedInUser', JSON.stringify({role: 'employee'}))
+              //setting user role and data in local storage
+              localStorage.setItem('loggedInUser', JSON.stringify({role: 'employee',  data:employee}))
             }
           }
           

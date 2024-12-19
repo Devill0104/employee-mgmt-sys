@@ -13,6 +13,7 @@ const Login = ({handleLogin}) => {
         e.preventDefault()
 
         //calling the handleLogin fn when submitHandler runs, also passing the emial and password as props
+        //it is definded in the app 
         handleLogin(email, password)
 
         // console.log("email is",email)
