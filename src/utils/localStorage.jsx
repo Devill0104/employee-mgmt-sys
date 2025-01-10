@@ -12,24 +12,30 @@ const employees = [
         "newtask": true,
         "completed": false,
         "failed": false,
-        "task description": "Complete monthly report",
-        "category": "Reporting"
+        "category": "Reporting",
+        "taskDescription": "Complete monthly report",
+        "taskTitle": "Complete",
+        "taskDate": "27-10-2023"
       },
       {
         "active": false,
         "newtask": false,
         "completed": true,
         "failed": false,
-        "task description": "Update software",
-        "category": "Maintenance"
+        "category": "Maintenance",
+        "taskDescription": "Update software",
+        "taskTitle": "Update",
+        "taskDate": "27-10-2023"
       },
       {
         "active": true,
         "newtask": true,
         "completed": false,
         "failed": false,
-        "task description": "Attend team meeting",
-        "category": "Meeting"
+        "category": "Meeting",
+        "taskDescription": "Attend team meeting",
+        "taskTitle": "Attend",
+        "taskDate": "27-10-2023"
       }
     ],
     "taskCounts": { "active": 2, "newtask": 2, "completed": 1, "failed": 0 }
@@ -45,16 +51,20 @@ const employees = [
         "newtask": true,
         "completed": false,
         "failed": false,
-        "task description": "Fix bug in system",
-        "category": "Development"
+        "category": "Development",
+        "taskDescription": "Fix bug in system",
+        "taskTitle": "Fix",
+        "taskDate": "27-10-2023"
       },
       {
         "active": true,
         "newtask": true,
         "completed": false,
         "failed": false,
-        "task description": "Write unit tests for new feature",
-        "category": "Testing"
+        "category": "Testing",
+        "taskDescription": "Write unit tests for new feature",
+        "taskTitle": "Write",
+        "taskDate": "27-10-2023"
       }
     ],
     "taskCounts": { "active": 2, "newtask": 2, "completed": 0, "failed": 0 }
@@ -70,24 +80,30 @@ const employees = [
         "newtask": true,
         "completed": false,
         "failed": false,
-        "task description": "Research market trends",
-        "category": "Market Research"
+        "category": "Market Research",
+        "taskDescription": "Research market trends",
+        "taskTitle": "Research",
+        "taskDate": "27-10-2023"
       },
       {
         "active": false,
         "newtask": false,
         "completed": true,
         "failed": false,
-        "task description": "Prepare presentation slides",
-        "category": "Presentations"
+        "category": "Presentations",
+        "taskDescription": "Prepare presentation slides",
+        "taskTitle": "Prepare",
+        "taskDate": "27-10-2023"
       },
       {
         "active": true,
         "newtask": true,
         "completed": false,
         "failed": false,
-        "task description": "Analyze customer feedback",
-        "category": "Customer Relations"
+        "category": "Customer Relations",
+        "taskDescription": "Analyze customer feedback",
+        "taskTitle": "Analyze",
+        "taskDate": "27-10-2023"
       }
     ],
     "taskCounts": { "active": 2, "newtask": 2, "completed": 1, "failed": 0 }
@@ -103,16 +119,20 @@ const employees = [
         "newtask": true,
         "completed": false,
         "failed": false,
-        "task description": "Create project timeline",
-        "category": "Project Management"
+        "category": "Project Management",
+        "taskDescription": "Create project timeline",
+        "taskTitle": "Create",
+        "taskDate": "27-10-2023"
       },
       {
         "active": false,
         "newtask": false,
         "completed": true,
         "failed": false,
-        "task description": "Finalize budget report",
-        "category": "Finance"
+        "category": "Finance",
+        "taskDescription": "Finalize budget report",
+        "taskTitle": "Finalize",
+        "taskDate": "27-10-2023"
       }
     ],
     "taskCounts": { "active": 1, "newtask": 1, "completed": 1, "failed": 0 }
@@ -128,33 +148,41 @@ const employees = [
         "newtask": true,
         "completed": false,
         "failed": false,
-        "task description": "Organize company event",
-        "category": "Events"
+        "category": "Events",
+        "taskDescription": "Organize company event",
+        "taskTitle": "Organize",
+        "taskDate": "27-10-2023"
       },
       {
         "active": false,
         "newtask": false,
         "completed": true,
         "failed": false,
-        "task description": "Create social media strategy",
-        "category": "Marketing"
+        "category": "Marketing",
+        "taskDescription": "Create social media strategy",
+        "taskTitle": "Create",
+        "taskDate": "27-10-2023"
       },
       {
         "active": true,
         "newtask": true,
         "completed": false,
         "failed": false,
-        "task description": "Design email marketing campaign",
-        "category": "Marketing"
+        "category": "Marketing",
+        "taskDescription": "Design email marketing campaign",
+        "taskTitle": "Design",
+        "taskDate": "27-10-2023"
       }
     ],
     "taskCounts": { "active": 2, "newtask": 2, "completed": 1, "failed": 0 }
   }
 ];
 
+
 const admin = [
   {
     "name": "admin",
+    "firstname" : "Atul",
     "email": "admin@example.com",
     "id": 1,
     "password": "123"
@@ -163,6 +191,7 @@ const admin = [
 
     
 export const setLocalStorage = () => {
+  localStorage.clear()
     // localStorage.setItem is a fn that can be used to set values of local storage variables
     //takes two parameters-> first parameter is the var name and ssecond one is the value
     //employees is a json object, directly passing the json data will show only objects as it is not readable 

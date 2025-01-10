@@ -4,7 +4,7 @@ import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
 import {AuthContext} from './context/AuthProvider'
 import AuthProvider from './context/AuthProvider'
-import { getLocalStorage, setLocalStorage } from './utils/localStorage'
+
 
 
 const App = () => {
@@ -22,7 +22,6 @@ const App = () => {
     if(loggedInUser) {
       // console.log("user logged in hai")
       const userData = JSON.parse(loggedInUser)
-      
       setUser(userData.role)
       setLoggedInUserData(userData.data)
     }
@@ -67,16 +66,16 @@ const App = () => {
 
 
 
-  // using useEffect to run the set fn and fill the details in the local stoarage
+  // // // using useEffect to run the set fn and fill the details in the local stoarage
   // useEffect(() => {
-  //   //fn setLocalstorage. getlocalstoaraeg can be called in from the useEffect hook that will call and run it parallely
+  //   // fn setLocalstorage. getlocalstoaraeg can be called in from the useEffect hook that will call and run it parallely
 
-  //   //if we wnat to set the data inlocal storage then we can run this fn
-  //   // setLocalStorage()  
+  //   // if we wnat to set the data inlocal storage then we can run this fn
+  //   setLocalStorage()  
 
   //   // if we wanna get the data from localstorage then we will callthis fn
-  //   // getLocalStorage()
-  //   // console.log()
+  //   getLocalStorage()
+    
   // })
 
  
@@ -88,7 +87,7 @@ const App = () => {
       {!user ? <Login handleLogin = {handleLogin}/>: ''}
 
       {/* //different Dashboard will appear as per the user type */}
-      {user == 'admin' ? <AdminDashboard/> : (user == 'employee' ?  <EmployeeDashboard data={loggedInUserData} />: null) }
+      {user == 'admin' ? <AdminDashboard changeUser={setUser} data={loggedInUserData}/> : (user == 'employee' ?  <EmployeeDashboard changeUser={setUser} data={loggedInUserData} />: null) }
         
       {/* <AuthContext></AuthContext> */}
 
